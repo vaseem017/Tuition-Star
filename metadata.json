@@ -1,0 +1,6 @@
+{
+  "name": "TuitionStar",
+  "description": "The complete modern tuition management and tutor discovery platform for private tutors, students, and parents.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

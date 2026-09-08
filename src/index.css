@@ -1,0 +1,110 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    --background: #FFFFFF;
+    --foreground: #0c1e4e;
+    --brand-navy: #0c1e4e;
+    --brand-navy-light: #152e72;
+    --brand-blue: #1d4ed8;
+    --brand-sky: #0284c7;
+  }
+
+  .dark {
+    --background: #050a16;
+    --foreground: #F8FAFC;
+    --brand-navy: #0c1e4e;
+    --brand-navy-light: #1a3375;
+    --brand-blue: #3B82F6;
+    --brand-sky: #38BDF8;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    color: var(--foreground);
+    background-color: var(--background);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Optimized PC Desktop Container Width: slightly wider to reduce excess side margins without edge stretching */
+@media (min-width: 1280px) {
+  .max-w-7xl {
+    max-width: 1360px;
+  }
+  .max-w-6xl {
+    max-width: 1300px;
+  }
+}
+
+@media (min-width: 1536px) {
+  .max-w-7xl {
+    max-width: 1380px;
+  }
+  .max-w-6xl {
+    max-width: 1320px;
+  }
+}
+
+/* Brand Navy Accent Utilities */
+.bg-brand-navy {
+  background-color: #0c1e4e;
+}
+
+.text-brand-navy {
+  color: #0c1e4e;
+}
+
+.border-brand-navy {
+  border-color: #0c1e4e;
+}
+
+/* Subtle grid background pattern */
+.bg-grid-pattern {
+  background-size: 32px 32px;
+  background-image: 
+    linear-gradient(to right, rgba(12, 30, 78, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(12, 30, 78, 0.05) 1px, transparent 1px);
+}
+
+.dark .bg-grid-pattern {
+  background-size: 32px 32px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+}
+
+/* Modern subtle glow infused with #0c1e4e */
+.radial-glow {
+  background: radial-gradient(circle 700px at 50% 0%, rgba(12, 30, 78, 0.1), transparent 72%);
+}
+
+.dark .radial-glow {
+  background: radial-gradient(circle 700px at 50% 0%, rgba(29, 78, 216, 0.16), transparent 72%);
+}
+
+.navy-mesh-glow {
+  background: radial-gradient(ellipse 80% 50% at 50% -20%, rgba(12, 30, 78, 0.18), transparent);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(12, 30, 78, 0.25);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(12, 30, 78, 0.45);
+}
