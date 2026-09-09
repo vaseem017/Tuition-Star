@@ -68,7 +68,23 @@ export const Navbar: React.FC = () => {
   };
 
   return (
-    <header className="fixed top-3 sm:top-5 left-0 right-0 z-50 px-3 sm:px-6 pointer-events-none transition-all duration-300">
+    <>
+      <button
+        type="button"
+        onClick={toggleTheme}
+        aria-label={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}
+        title={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}
+        className="fixed bottom-5 right-5 z-[60] inline-flex items-center gap-2 rounded-full border border-slate-200/80 bg-white/90 dark:border-slate-700/80 dark:bg-[#0B1322]/90 px-2.5 py-2 shadow-[0_20px_40px_-18px_rgba(15,23,42,0.45)] backdrop-blur-xl transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_24px_50px_-18px_rgba(15,23,42,0.5)] focus:outline-none focus:ring-2 focus:ring-blue-500"
+      >
+        <span className="flex h-9 w-9 items-center justify-center rounded-full bg-slate-100 text-slate-700 dark:bg-slate-800 dark:text-slate-100">
+          {theme === 'light' ? <Moon className="h-4 w-4" /> : <Sun className="h-4 w-4 text-amber-400" />}
+        </span>
+        <span className="hidden sm:inline text-[10px] font-bold uppercase tracking-[0.24em] text-slate-600 dark:text-slate-300">
+          {theme === 'light' ? 'Dark' : 'Light'}
+        </span>
+      </button>
+
+      <header className="fixed top-3 sm:top-5 left-0 right-0 z-50 px-3 sm:px-6 pointer-events-none transition-all duration-300">
       {/* Floating Pill Container - Matching Reference Image */}
       <div
         className={cn(
@@ -312,7 +328,7 @@ export const Navbar: React.FC = () => {
                             For Private Tutors & Academies
                           </div>
                           <div className="text-xs text-slate-500 dark:text-slate-400 leading-snug mt-0.5">
-                            Batch management, automated attendance, PDF report cards, and fee collection.
+                            Attendance tracking, report cards & fee collection for tutors.
                           </div>
                         </div>
                       </Link>
@@ -329,7 +345,7 @@ export const Navbar: React.FC = () => {
                             For Students & Learners
                           </div>
                           <div className="text-xs text-slate-500 dark:text-slate-400 leading-snug mt-0.5">
-                            Timetable calendar sync, homework submission vaults, and topic mastery curves.
+                            Timetable sync, homework tracking & progress reports for students.
                           </div>
                         </div>
                       </Link>
@@ -346,7 +362,7 @@ export const Navbar: React.FC = () => {
                             For Parents & Guardians
                           </div>
                           <div className="text-xs text-slate-500 dark:text-slate-400 leading-snug mt-0.5">
-                            Instant class check-in alerts, same-day test marks, and transparent digital receipts.
+                             Real-time attendance alerts, test scores & fee receipts for parents.
                           </div>
                         </div>
                       </Link>
@@ -488,22 +504,8 @@ export const Navbar: React.FC = () => {
             </Link>
           </nav>
 
-          {/* 3. Right: Theme Toggle & Solid Action Button (Matching Reference Image) */}
+          {/* 3. Right: Solid Action Button (Matching Reference Image) */}
           <div className="hidden lg:flex items-center gap-3 shrink-0 whitespace-nowrap">
-            {/* Theme Toggle */}
-            <button
-              onClick={toggleTheme}
-              id="theme-toggle-desktop"
-              aria-label={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}
-              className="p-2 rounded-xl text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 shrink-0"
-            >
-              {theme === 'light' ? (
-                <Moon className="w-4 h-4" />
-              ) : (
-                <Sun className="w-4 h-4 text-amber-400" />
-              )}
-            </button>
-
             {/* Login Link */}
             <Link
               to="/download"
@@ -524,17 +526,8 @@ export const Navbar: React.FC = () => {
             </Link>
           </div>
 
-          {/* Mobile Right Controls: Theme + Hamburger */}
+          {/* Mobile Right Controls: Hamburger */}
           <div className="flex lg:hidden items-center gap-2 shrink-0 whitespace-nowrap">
-            <button
-              onClick={toggleTheme}
-              id="theme-toggle-mobile"
-              aria-label="Toggle theme"
-              className="p-2 rounded-xl text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800"
-            >
-              {theme === 'light' ? <Moon className="w-4 h-4" /> : <Sun className="w-4 h-4 text-amber-400" />}
-            </button>
-
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               id="mobile-menu-toggle"
@@ -668,5 +661,6 @@ export const Navbar: React.FC = () => {
         </AnimatePresence>
       </div>
     </header>
+    </>
   );
 };
